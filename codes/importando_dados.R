@@ -167,6 +167,8 @@ dt_cot[, `:=`(ret_21 = frollapply(x = ret, n = 21, FUN = function(x) prod(1 + x,
               ret_252_exc = frollapply(x = ret_exc, n = 252, FUN = function(x) prod(1 + x, na.rm = T) - 1 , fill = NA, align = "right")
               ), by = .(ticker)]
 
+
+
 # Selecting only end of the month 
 
 dt_month <- dt_cot[, .SD[.N], by = .(ticker, ym)] %>% 
